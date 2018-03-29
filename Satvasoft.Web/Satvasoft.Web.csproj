@@ -2603,6 +2603,7 @@
     <Content Include="Scripts\vendor\errors.json" />
     <Content Include="Scripts\vendor\jquery-2.0.3.min.map" />
     <Content Include="Views\404.cshtml" />
+    <Content Include="Views\_PageStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
