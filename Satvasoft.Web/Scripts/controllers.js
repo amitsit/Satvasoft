@@ -375,6 +375,63 @@ angular.module('app.controllers', [])
                                  $scope.GetList = response.data;
                              });
           }
-      }]);
+      }])
+.controller('fresherAspnetCntrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    $scope.$root.title = 'Software Development Company - Fresher ASP.NET Job Opportunities - Shaligram InfoTech';
+    $scope.$root.metakeyword = 'Junior Java Developer Job,Junior Android Developer Job,Junior iOS Developer Job,Junior Web Designer Job,Fresher Marketing Job,Junior Marketing Job,Fresher SEO Executive Job,Junior SEO Executive Job,Senior Marketing Job,Senior SEO Executive Job,Senior Java Developer Job,Senior Android Developer Job,Senior iOS Developer Job,Senior Web Designer Job,Senior BizTalk Developer Job,Senior SharePoint Developer Job,Senior Dynamic CRM Developer Job';
+    $scope.$root.metadescription = 'Shaligram Infotech has one of the best working environments that a lot of tech people desire to work in. Many of them want to work with us and many would support the above lines, who are already working here. A peaceful place is a must for anybody to work well; where they meet their targets, leave the clients satisfied and bring in more and more work due to the progress that they show on each and every tasks that they undertake. We at, Shaligram Infotech have it all! ';
 
+    $scope.$on('$viewContentLoaded', function () {
+        $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+    });
+}])
+
+     .controller('fresherBusinessDevelopmentExecutiveCntrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+         $scope.$root.title = 'Software Development Company - Fresher Business Development Executive Job Opportunities - Shaligram InfoTech';
+         $scope.$root.metakeyword = 'Junior Java Developer Job,Junior Android Developer Job,Junior iOS Developer Job,Junior Web Designer Job,Fresher Business Development Job,Junior Business Development Job,Fresher SEO Executive Job,Junior SEO Executive Job,Senior Business Development Job,Senior SEO Executive Job,Senior Java Developer Job,Senior Android Developer Job,Senior iOS Developer Job,Senior Web Designer Job,Senior BizTalk Developer Job,Senior SharePoint Developer Job,Senior Dynamic CRM Developer Job';
+         $scope.$root.metadescription = 'Shaligram Infotech has one of the best working environments that a lot of tech people desire to work in. Many of them want to work with us and many would support the above lines, who are already working here. A peaceful place is a must for anybody to work well; where they meet their targets, leave the clients satisfied and bring in more and more work due to the progress that they show on each and every tasks that they undertake. We at, Shaligram Infotech have it all! ';
+
+         $scope.$on('$viewContentLoaded', function () {
+             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+         });
+     }])
+
+      .controller('jrBusinessDevelopmentExecutiveCntrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+          $scope.$root.title = 'Software Development Company - Junior Business Development Executive Job Opportunities - Shaligram InfoTech';
+          $scope.$root.metakeyword = 'Junior Java Developer Job,Junior Android Developer Job,Junior iOS Developer Job,Junior Web Designer Job,Fresher Business Development Job,Junior Business Development Job,Fresher SEO Executive Job,Junior SEO Executive Job,Senior Business Development Job,Senior SEO Executive Job,Senior Java Developer Job,Senior Android Developer Job,Senior iOS Developer Job,Senior Web Designer Job,Senior BizTalk Developer Job,Senior SharePoint Developer Job,Senior Dynamic CRM Developer Job';
+          $scope.$root.metadescription = 'Shaligram Infotech has one of the best working environments that a lot of tech people desire to work in. Many of them want to work with us and many would support the above lines, who are already working here. A peaceful place is a must for anybody to work well; where they meet their targets, leave the clients satisfied and bring in more and more work due to the progress that they show on each and every tasks that they undertake. We at, Shaligram Infotech have it all! ';
+
+          $scope.$on('$viewContentLoaded', function () {
+              $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+          });
+      }])
+
+      .controller('srBusinessDevelopmentExecutiveCntrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+          $scope.$root.title = 'Software Development Company - Senior Business Development Executive Job Opportunities - Shaligram InfoTech';
+          $scope.$root.metakeyword = 'Junior Java Developer Job,Junior Android Developer Job,Junior iOS Developer Job,Junior Web Designer Job,Fresher Business Development Job,Junior Business Development Job,Fresher SEO Executive Job,Junior SEO Executive Job,Senior Business Development Job,Senior SEO Executive Job,Senior Java Developer Job,Senior Android Developer Job,Senior iOS Developer Job,Senior Web Designer Job,Senior BizTalk Developer Job,Senior SharePoint Developer Job,Senior Dynamic CRM Developer Job';
+          $scope.$root.metadescription = 'Shaligram Infotech has one of the best working environments that a lot of tech people desire to work in. Many of them want to work with us and many would support the above lines, who are already working here. A peaceful place is a must for anybody to work well; where they meet their targets, leave the clients satisfied and bring in more and more work due to the progress that they show on each and every tasks that they undertake. We at, Shaligram Infotech have it all! ';
+
+          $scope.$on('$viewContentLoaded', function () {
+              $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+          });
+      }])
+
+      .controller('srSharepointDeveloperCntrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+          $scope.$root.title = 'Software Development Company - Senior Sharepoint Developer Job Opportunities - Shaligram InfoTech';
+          $scope.$root.metakeyword = 'Junior Java Developer Job,Junior Android Developer Job,Junior iOS Developer Job,Junior Web Designer Job,Fresher Business Development Job,Junior Business Development Job,Fresher SEO Executive Job,Junior SEO Executive Job,Senior Business Development Job,Senior SEO Executive Job,Senior Java Developer Job,Senior Android Developer Job,Senior iOS Developer Job,Senior Web Designer Job,Senior BizTalk Developer Job,Senior SharePoint Developer Job,Senior Dynamic CRM Developer Job';
+          $scope.$root.metadescription = 'Shaligram Infotech has one of the best working environments that a lot of tech people desire to work in. Many of them want to work with us and many would support the above lines, who are already working here. A peaceful place is a must for anybody to work well; where they meet their targets, leave the clients satisfied and bring in more and more work due to the progress that they show on each and every tasks that they undertake. We at, Shaligram Infotech have it all! ';
+
+          $scope.$on('$viewContentLoaded', function () {
+              $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+          });
+      }])
+     .controller('srJavaDeveloperCntrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+         $scope.$root.title = 'Software Development Company - Senior Java Developer Job Opportunities - Shaligram InfoTech';
+         $scope.$root.metakeyword = 'Junior Java Developer Job,Junior Android Developer Job,Junior iOS Developer Job,Junior Web Designer Job,Fresher Business Development Job,Junior Business Development Job,Fresher SEO Executive Job,Junior SEO Executive Job,Senior Business Development Job,Senior SEO Executive Job,Senior Java Developer Job,Senior Android Developer Job,Senior iOS Developer Job,Senior Web Designer Job,Senior BizTalk Developer Job,Senior SharePoint Developer Job,Senior Dynamic CRM Developer Job';
+         $scope.$root.metadescription = 'Shaligram Infotech has one of the best working environments that a lot of tech people desire to work in. Many of them want to work with us and many would support the above lines, who are already working here. A peaceful place is a must for anybody to work well; where they meet their targets, leave the clients satisfied and bring in more and more work due to the progress that they show on each and every tasks that they undertake. We at, Shaligram Infotech have it all! ';
+
+         $scope.$on('$viewContentLoaded', function () {
+             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+         });
+     }]);
 

@@ -222,6 +222,36 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
               templateUrl: '/views/Subscription',
               controller: 'SubscriptionController'
           })
+        .state('fresher-asp-net', {
+            url: '/fresher-asp-net',
+            templateUrl: '/views/fresher-asp-net',
+            controller: 'fresherAspnetCntrl'
+        })
+        .state('fresher-business-development-executive', {
+            url: '/fresher-business-development-executive',
+            templateUrl: '/views/fresher-business-development-executive',
+            controller: 'fresherBusinessDevelopmentExecutiveCntrl'
+        })
+        .state('jr-business-development-executive', {
+            url: '/jr-business-development-executive',
+            templateUrl: '/views/jr-business-development-executive',
+            controller: 'jrBusinessDevelopmentExecutiveCntrl'
+        })
+        .state('sr-business-development-executive', {
+            url: '/sr-business-development-executive',
+            templateUrl: '/views/sr-business-development-executive',
+            controller: 'srBusinessDevelopmentExecutiveCntrl'
+        })
+        .state('sr-sharepoint-developer', {
+            url: '/sr-sharepoint-developer',
+            templateUrl: '/views/sr-sharepoint-developer',
+            controller: 'srSharepointDeveloperCntrl'
+        })
+        .state('sr-java-developer', {
+            url: '/sr-java-developer',
+            templateUrl: '/views/sr-java-developer',
+            controller: 'srJavaDeveloperCntrl'
+        })
         .state('otherwise', {
             url: '*path',
             templateUrl: '/views/404',
