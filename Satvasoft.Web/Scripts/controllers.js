@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
 
         localStorage.setItem("RecentBlogPostList", null);
         localStorage.setItem("BlogPostCategories", null);
-        
+
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
@@ -356,7 +356,7 @@ angular.module('app.controllers', [])
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
-   
+
     .controller('BiztalkCtrl', ['$scope', '$location', '$window', '$rootScope', function ($scope, $location, $window, $rootScope) {
         $scope.$root.title = "Shaligram Infotech Biztalk | Biztalk Server 2013 R2 | Biztalk Server 2013 R2 Architecture | Busssiness Rule Engine";
         $scope.$root.metakeyword = 'Biztalk Server 2013 R2, Biztalk Server 2013 R2 Architecture, Business Rule Engine, Biztalk Server, BRE, BAM, Business Activity Monitoring, SSO, Single Sign-On, SWIFT, EDI, EDI & B2B, HIPAA, B2B, Rosettanet, HL7, Orchestration';
@@ -367,10 +367,10 @@ angular.module('app.controllers', [])
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
-      .controller('CommonImagesController', ['$scope', '$location', '$window', '$rootScope', '$http', function ($scope, $location, $window, $rootScope, $http) {
+      .controller('CommonImagesController', ['$scope', '$location', '$window', '$rootScope', '$http', 'configurationService', function ($scope, $location, $window, $rootScope, $http, configurationService) {
           $scope.GetFilesList = function (folderPath) {
               $scope.FolderPath = folderPath;
-              $http.get("ShaligramInfotechAPI/api/CommonApi/GetFiles?folderPath=" + folderPath)
+              $http.get(configurationService.basePath + "api/CommonApi/GetFiles?folderPath=" + folderPath)
                              .then(function (response) {
                                  $scope.GetList = response.data;
                              });

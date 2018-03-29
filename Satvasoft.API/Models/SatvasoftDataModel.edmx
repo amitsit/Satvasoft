@@ -1,0 +1,1425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SatvasoftModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ShaligramInfotech.dbo.posts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="posts">
+          <Property Name="post_id" Type="int" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="category_id" Type="int" />
+          <Property Name="post_imgpath" Type="nvarchar(max)" />
+          <Property Name="alt_tag" Type="nvarchar(max)" />
+          <Property Name="post_title" Type="nvarchar(max)" />
+          <Property Name="post_page_title" Type="nvarchar(max)" />
+          <Property Name="post_content" Type="nvarchar(max)" />
+          <Property Name="post_date" Type="datetime" />
+          <Property Name="post_url" Type="nvarchar(max)" />
+          <Property Name="is_active" Type="int" />
+          <Property Name="meta_keywords" Type="nvarchar(max)" />
+          <Property Name="meta_desc" Type="nvarchar(max)" />
+          <Property Name="view_count" Type="int" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ShaligramInfotech.dbo.posts$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="posts$">
+          <Property Name="post_id" Type="float" />
+          <Property Name="user_id" Type="float" />
+          <Property Name="category_id" Type="float" />
+          <Property Name="post_imgpath" Type="nvarchar(max)" />
+          <Property Name="alt_tag" Type="nvarchar(max)" />
+          <Property Name="post_title" Type="nvarchar(max)" />
+          <Property Name="post_page_title" Type="nvarchar(max)" />
+          <Property Name="post_content" Type="nvarchar(max)" />
+          <Property Name="post_date" Type="datetime" />
+          <Property Name="post_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="is_active" Type="float" />
+          <Property Name="meta_keywords" Type="nvarchar(max)" />
+          <Property Name="meta_desc" Type="nvarchar(max)" />
+          <Property Name="view_count" Type="float" />
+          <Property Name="modified_by" Type="float" />
+          <Property Name="modified_date" Type="datetime" />
+        </EntityType>-->
+        <EntityType Name="tblAdminMenu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentMenuId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" />
+          <Property Name="Action" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="DisplayOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="tblBlogCategories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBlogComments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBlogPosts">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="PostImagePath" Type="varchar(max)" />
+          <Property Name="AltTag" Type="varchar(max)" />
+          <Property Name="PostTitle" Type="varchar(max)" />
+          <Property Name="PostPageTitle" Type="varchar(max)" />
+          <Property Name="PostContent" Type="nvarchar(max)" />
+          <Property Name="PostDate" Type="datetime" />
+          <Property Name="PostURL" Type="varchar" MaxLength="400" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="MetaKeywords" Type="varchar(max)" />
+          <Property Name="MetaDesc" Type="varchar(max)" />
+          <Property Name="ViewCount" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblBlogPostSeeCount">
+          <Key>
+            <PropertyRef Name="PostSeeCountId" />
+          </Key>
+          <Property Name="PostSeeCountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBudget">
+          <Key>
+            <PropertyRef Name="BudgetId" />
+          </Key>
+          <Property Name="BudgetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblChallengeFaced">
+          <Key>
+            <PropertyRef Name="ChallengeFacedId" />
+          </Key>
+          <Property Name="ChallengeFacedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChallengeFaced" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblContactUs">
+          <Key>
+            <PropertyRef Name="ContactUsId" />
+          </Key>
+          <Property Name="ContactUsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="500" />
+          <Property Name="Company" Type="varchar" MaxLength="200" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Attachment" Type="nvarchar(max)" />
+          <Property Name="ContactOrSubscriptionRequest" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="tblContactUsAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactUsId" Type="int" Nullable="false" />
+          <Property Name="AttachmentURL" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceId" />
+          </Key>
+          <Property Name="ExperienceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Experience" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblJobOpenings">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="500" />
+          <Property Name="JobCode" Type="varchar" MaxLength="500" />
+          <Property Name="Loaction" Type="varchar" MaxLength="500" />
+          <Property Name="Openings" Type="int" />
+          <Property Name="SalaryRange" Type="int" />
+          <Property Name="ExperienceId" Type="int" />
+          <Property Name="Qualification" Type="varchar(max)" />
+          <Property Name="ImageUrl" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tblJobRequiredSkills">
+          <Key>
+            <PropertyRef Name="RequiredSkillId" />
+          </Key>
+          <Property Name="RequiredSkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentMenuId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPortfolio">
+          <Key>
+            <PropertyRef Name="PortfolioId" />
+          </Key>
+          <Property Name="PortfolioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="140" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="BannerImageURL" Type="nvarchar(max)" />
+          <Property Name="BannerImageTooltip" Type="nvarchar" MaxLength="400" />
+          <Property Name="TechnologyId" Type="int" />
+          <Property Name="FrontPageImageURL" Type="nvarchar(max)" />
+          <Property Name="FrontImageTooltip" Type="nvarchar" MaxLength="400" />
+          <Property Name="TitleSeoUrl" Type="nchar" MaxLength="200" />
+          <Property Name="SEOTitleTag" Type="nvarchar" MaxLength="400" />
+          <Property Name="MetaKeyword" Type="nvarchar(max)" />
+          <Property Name="MetaDescription" Type="nvarchar(max)" />
+          <Property Name="RequirePageCreation" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPortfolioFeatures">
+          <Key>
+            <PropertyRef Name="FeatureId" />
+          </Key>
+          <Property Name="FeatureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeatureText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPortfolioImages">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="SEOTitleTag" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="tblPortfolioLogo">
+          <Key>
+            <PropertyRef Name="PortfolioLogoId" />
+          </Key>
+          <Property Name="PortfolioLogoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+          <Property Name="ImageURL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SEOTitleTag" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblPortfolioObjective">
+          <Key>
+            <PropertyRef Name="ObjectiveId" />
+          </Key>
+          <Property Name="ObjectiveId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectiveText" Type="varchar(max)" Nullable="false" />
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPortfolioResult">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Name="ResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResultText" Type="nvarchar(max)" />
+          <Property Name="PortfolioId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPortfolioSolutions">
+          <Key>
+            <PropertyRef Name="SolutionId" />
+          </Key>
+          <Property Name="SolutionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SolutionText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PortfolioId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPortfolioTechnology">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TechnologyText" Type="nvarchar(max)" />
+          <Property Name="PortfolioId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPortfolioTypes">
+          <Key>
+            <PropertyRef Name="PortfolioTypeId" />
+          </Key>
+          <Property Name="PortfolioTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblProjectType">
+          <Key>
+            <PropertyRef Name="ProjectTypeId" />
+          </Key>
+          <Property Name="ProjectTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRequestQuote">
+          <Key>
+            <PropertyRef Name="RequestQuoteId" />
+          </Key>
+          <Property Name="RequestQuoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="City" Type="varchar" MaxLength="500" />
+          <Property Name="Company" Type="varchar" MaxLength="200" />
+          <Property Name="ProjectTypeId" Type="int" Nullable="false" />
+          <Property Name="BudgetId" Type="int" Nullable="false" />
+          <Property Name="ProjectDescription" Type="varchar(max)" />
+          <Property Name="Attachment" Type="varchar(max)" />
+          <Property Name="BudgetName" Type="varchar" MaxLength="100" />
+          <Property Name="ProjectTypeName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblRoleMenu">
+          <Key>
+            <PropertyRef Name="RoleMenuId" />
+          </Key>
+          <Property Name="RoleMenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="IsView" Type="bit" Nullable="false" />
+          <Property Name="IsAdd" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="IsEdit" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSalaryRange">
+          <Key>
+            <PropertyRef Name="SalaryRangeId" />
+          </Key>
+          <Property Name="SalaryRangeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalaryRange" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblTechnologies">
+          <Key>
+            <PropertyRef Name="TechnologyId" />
+          </Key>
+          <Property Name="TechnologyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TechnologyName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ShaligramInfotech.dbo.tblUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="EmailId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblContactUsAttachment_tblContactUs">
+          <End Role="tblContactUs" Type="Self.tblContactUs" Multiplicity="1" />
+          <End Role="tblContactUsAttachment" Type="Self.tblContactUsAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblContactUs">
+              <PropertyRef Name="ContactUsId" />
+            </Principal>
+            <Dependent Role="tblContactUsAttachment">
+              <PropertyRef Name="ContactUsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioFeatures_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioFeatures" Type="Self.tblPortfolioFeatures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioFeatures">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioImages_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioImages" Type="Self.tblPortfolioImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioImages">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioObjective_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioObjective" Type="Self.tblPortfolioObjective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioObjective">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioResult_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="0..1" />
+          <End Role="tblPortfolioResult" Type="Self.tblPortfolioResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioResult">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioSolutions_tblPortfolioSolutions">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioSolutions" Type="Self.tblPortfolioSolutions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioSolutions">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioTechnology_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="0..1" />
+          <End Role="tblPortfolioTechnology" Type="Self.tblPortfolioTechnology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioTechnology">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRoleMenu_tblAdminMenu">
+          <End Role="tblAdminMenu" Type="Self.tblAdminMenu" Multiplicity="1" />
+          <End Role="tblRoleMenu" Type="Self.tblRoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminMenu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="tblRoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRoleMenu_tblRoles">
+          <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="1" />
+          <End Role="tblRoleMenu" Type="Self.tblRoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tblRoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_tblRoles">
+          <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="1" />
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SatvasoftModelStoreContainer">
+          <EntitySet Name="tblAdminMenu" EntityType="Self.tblAdminMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBlogCategories" EntityType="Self.tblBlogCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBlogComments" EntityType="Self.tblBlogComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBlogPosts" EntityType="Self.tblBlogPosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBlogPostSeeCount" EntityType="Self.tblBlogPostSeeCount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBudget" EntityType="Self.tblBudget" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblChallengeFaced" EntityType="Self.tblChallengeFaced" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContactUs" EntityType="Self.tblContactUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblContactUsAttachment" EntityType="Self.tblContactUsAttachment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblExperience" EntityType="Self.tblExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblJobOpenings" EntityType="Self.tblJobOpenings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblJobRequiredSkills" EntityType="Self.tblJobRequiredSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMenu" EntityType="Self.tblMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolio" EntityType="Self.tblPortfolio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioFeatures" EntityType="Self.tblPortfolioFeatures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioImages" EntityType="Self.tblPortfolioImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioLogo" EntityType="Self.tblPortfolioLogo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioObjective" EntityType="Self.tblPortfolioObjective" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioResult" EntityType="Self.tblPortfolioResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioSolutions" EntityType="Self.tblPortfolioSolutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioTechnology" EntityType="Self.tblPortfolioTechnology" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPortfolioTypes" EntityType="Self.tblPortfolioTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjectType" EntityType="Self.tblProjectType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRequestQuote" EntityType="Self.tblRequestQuote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRoleMenu" EntityType="Self.tblRoleMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRoles" EntityType="Self.tblRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSalaryRange" EntityType="Self.tblSalaryRange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTechnologies" EntityType="Self.tblTechnologies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblUser].[UserId] AS [UserId], 
+    [tblUser].[Username] AS [Username], 
+    [tblUser].[Password] AS [Password], 
+    [tblUser].[EmailId] AS [EmailId], 
+    [tblUser].[RoleId] AS [RoleId], 
+    [tblUser].[IsActive] AS [IsActive]
+    FROM [dbo].[tblUser] AS [tblUser]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblContactUsAttachment_tblContactUs" Association="Self.FK_tblContactUsAttachment_tblContactUs">
+            <End Role="tblContactUs" EntitySet="tblContactUs" />
+            <End Role="tblContactUsAttachment" EntitySet="tblContactUsAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioFeatures_tblPortfolio" Association="Self.FK_tblPortfolioFeatures_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolio" />
+            <End Role="tblPortfolioFeatures" EntitySet="tblPortfolioFeatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioImages_tblPortfolio" Association="Self.FK_tblPortfolioImages_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolio" />
+            <End Role="tblPortfolioImages" EntitySet="tblPortfolioImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioObjective_tblPortfolio" Association="Self.FK_tblPortfolioObjective_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolio" />
+            <End Role="tblPortfolioObjective" EntitySet="tblPortfolioObjective" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioResult_tblPortfolio" Association="Self.FK_tblPortfolioResult_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolio" />
+            <End Role="tblPortfolioResult" EntitySet="tblPortfolioResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioSolutions_tblPortfolioSolutions" Association="Self.FK_tblPortfolioSolutions_tblPortfolioSolutions">
+            <End Role="tblPortfolio" EntitySet="tblPortfolio" />
+            <End Role="tblPortfolioSolutions" EntitySet="tblPortfolioSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioTechnology_tblPortfolio" Association="Self.FK_tblPortfolioTechnology_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolio" />
+            <End Role="tblPortfolioTechnology" EntitySet="tblPortfolioTechnology" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRoleMenu_tblAdminMenu" Association="Self.FK_tblRoleMenu_tblAdminMenu">
+            <End Role="tblAdminMenu" EntitySet="tblAdminMenu" />
+            <End Role="tblRoleMenu" EntitySet="tblRoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRoleMenu_tblRoles" Association="Self.FK_tblRoleMenu_tblRoles">
+            <End Role="tblRoles" EntitySet="tblRoles" />
+            <End Role="tblRoleMenu" EntitySet="tblRoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_tblRoles" Association="Self.FK_tblUser_tblRoles">
+            <End Role="tblRoles" EntitySet="tblRoles" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SatvasoftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAdminMenu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentMenuId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <NavigationProperty Name="tblRoleMenus" Relationship="Self.FK_tblRoleMenu_tblAdminMenu" FromRole="tblAdminMenu" ToRole="tblRoleMenu" />
+        </EntityType>
+        <EntityType Name="tblBlogCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblBlogComment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBlogPost">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="PostImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AltTag" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PostTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PostPageTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PostContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostDate" Type="DateTime" Precision="3" />
+          <Property Name="PostURL" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="MetaKeywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MetaDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ViewCount" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblBlogPostSeeCount">
+          <Key>
+            <PropertyRef Name="PostSeeCountId" />
+          </Key>
+          <Property Name="PostSeeCountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblBudget">
+          <Key>
+            <PropertyRef Name="BudgetId" />
+          </Key>
+          <Property Name="BudgetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblChallengeFaced">
+          <Key>
+            <PropertyRef Name="ChallengeFacedId" />
+          </Key>
+          <Property Name="ChallengeFacedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChallengeFaced" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblContactU">
+          <Key>
+            <PropertyRef Name="ContactUsId" />
+          </Key>
+          <Property Name="ContactUsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Company" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactOrSubscriptionRequest" Type="Byte" />
+          <NavigationProperty Name="tblContactUsAttachments" Relationship="Self.FK_tblContactUsAttachment_tblContactUs" FromRole="tblContactUs" ToRole="tblContactUsAttachment" />
+        </EntityType>
+        <EntityType Name="tblContactUsAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactUsId" Type="Int32" Nullable="false" />
+          <Property Name="AttachmentURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblContactU" Relationship="Self.FK_tblContactUsAttachment_tblContactUs" FromRole="tblContactUsAttachment" ToRole="tblContactUs" />
+        </EntityType>
+        <EntityType Name="tblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceId" />
+          </Key>
+          <Property Name="ExperienceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Experience" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblJobOpening">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="JobCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Loaction" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Openings" Type="Int32" />
+          <Property Name="SalaryRange" Type="Int32" />
+          <Property Name="ExperienceId" Type="Int32" />
+          <Property Name="Qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblJobRequiredSkill">
+          <Key>
+            <PropertyRef Name="RequiredSkillId" />
+          </Key>
+          <Property Name="RequiredSkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMenu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentMenuId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblPortfolio">
+          <Key>
+            <PropertyRef Name="PortfolioId" />
+          </Key>
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="140" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="BannerImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BannerImageTooltip" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="TechnologyId" Type="Int32" />
+          <Property Name="FrontPageImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FrontImageTooltip" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="TitleSeoUrl" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="SEOTitleTag" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequirePageCreation" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblPortfolioFeatures" Relationship="Self.FK_tblPortfolioFeatures_tblPortfolio" FromRole="tblPortfolio" ToRole="tblPortfolioFeatures" />
+          <NavigationProperty Name="tblPortfolioImages" Relationship="Self.FK_tblPortfolioImages_tblPortfolio" FromRole="tblPortfolio" ToRole="tblPortfolioImages" />
+          <NavigationProperty Name="tblPortfolioObjectives" Relationship="Self.FK_tblPortfolioObjective_tblPortfolio" FromRole="tblPortfolio" ToRole="tblPortfolioObjective" />
+          <NavigationProperty Name="tblPortfolioResults" Relationship="Self.FK_tblPortfolioResult_tblPortfolio" FromRole="tblPortfolio" ToRole="tblPortfolioResult" />
+          <NavigationProperty Name="tblPortfolioSolutions" Relationship="Self.FK_tblPortfolioSolutions_tblPortfolioSolutions" FromRole="tblPortfolio" ToRole="tblPortfolioSolutions" />
+          <NavigationProperty Name="tblPortfolioTechnologies" Relationship="Self.FK_tblPortfolioTechnology_tblPortfolio" FromRole="tblPortfolio" ToRole="tblPortfolioTechnology" />
+        </EntityType>
+        <EntityType Name="tblPortfolioFeature">
+          <Key>
+            <PropertyRef Name="FeatureId" />
+          </Key>
+          <Property Name="FeatureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeatureText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblPortfolio" Relationship="Self.FK_tblPortfolioFeatures_tblPortfolio" FromRole="tblPortfolioFeatures" ToRole="tblPortfolio" />
+        </EntityType>
+        <EntityType Name="tblPortfolioImage">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEOTitleTag" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblPortfolio" Relationship="Self.FK_tblPortfolioImages_tblPortfolio" FromRole="tblPortfolioImages" ToRole="tblPortfolio" />
+        </EntityType>
+        <EntityType Name="tblPortfolioLogo">
+          <Key>
+            <PropertyRef Name="PortfolioLogoId" />
+          </Key>
+          <Property Name="PortfolioLogoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SEOTitleTag" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPortfolioObjective">
+          <Key>
+            <PropertyRef Name="ObjectiveId" />
+          </Key>
+          <Property Name="ObjectiveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectiveText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblPortfolio" Relationship="Self.FK_tblPortfolioObjective_tblPortfolio" FromRole="tblPortfolioObjective" ToRole="tblPortfolio" />
+        </EntityType>
+        <EntityType Name="tblPortfolioResult">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Name="ResultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResultText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PortfolioId" Type="Int32" />
+          <NavigationProperty Name="tblPortfolio" Relationship="Self.FK_tblPortfolioResult_tblPortfolio" FromRole="tblPortfolioResult" ToRole="tblPortfolio" />
+        </EntityType>
+        <EntityType Name="tblPortfolioSolution">
+          <Key>
+            <PropertyRef Name="SolutionId" />
+          </Key>
+          <Property Name="SolutionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SolutionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PortfolioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblPortfolio" Relationship="Self.FK_tblPortfolioSolutions_tblPortfolioSolutions" FromRole="tblPortfolioSolutions" ToRole="tblPortfolio" />
+        </EntityType>
+        <EntityType Name="tblPortfolioTechnology">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TechnologyText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PortfolioId" Type="Int32" />
+          <NavigationProperty Name="tblPortfolio" Relationship="Self.FK_tblPortfolioTechnology_tblPortfolio" FromRole="tblPortfolioTechnology" ToRole="tblPortfolio" />
+        </EntityType>
+        <EntityType Name="tblPortfolioType">
+          <Key>
+            <PropertyRef Name="PortfolioTypeId" />
+          </Key>
+          <Property Name="PortfolioTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblProjectType">
+          <Key>
+            <PropertyRef Name="ProjectTypeId" />
+          </Key>
+          <Property Name="ProjectTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblRequestQuote">
+          <Key>
+            <PropertyRef Name="RequestQuoteId" />
+          </Key>
+          <Property Name="RequestQuoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Company" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectTypeId" Type="Int32" Nullable="false" />
+          <Property Name="BudgetId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BudgetName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblRoleMenu">
+          <Key>
+            <PropertyRef Name="RoleMenuId" />
+          </Key>
+          <Property Name="RoleMenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="IsView" Type="Boolean" Nullable="false" />
+          <Property Name="IsAdd" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="IsEdit" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblAdminMenu" Relationship="Self.FK_tblRoleMenu_tblAdminMenu" FromRole="tblRoleMenu" ToRole="tblAdminMenu" />
+          <NavigationProperty Name="tblRole" Relationship="Self.FK_tblRoleMenu_tblRoles" FromRole="tblRoleMenu" ToRole="tblRoles" />
+        </EntityType>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblRoleMenus" Relationship="Self.FK_tblRoleMenu_tblRoles" FromRole="tblRoles" ToRole="tblRoleMenu" />
+          <NavigationProperty Name="tblUsers" Relationship="Self.FK_tblUser_tblRoles" FromRole="tblRoles" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblSalaryRange">
+          <Key>
+            <PropertyRef Name="SalaryRangeId" />
+          </Key>
+          <Property Name="SalaryRangeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaryRange" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblTechnology">
+          <Key>
+            <PropertyRef Name="TechnologyId" />
+          </Key>
+          <Property Name="TechnologyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TechnologyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="EmailId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="IsActive" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblRole" Relationship="Self.FK_tblUser_tblRoles" FromRole="tblUser" ToRole="tblRoles" />
+        </EntityType>
+        <Association Name="FK_tblRoleMenu_tblAdminMenu">
+          <End Role="tblAdminMenu" Type="Self.tblAdminMenu" Multiplicity="1" />
+          <End Role="tblRoleMenu" Type="Self.tblRoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminMenu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="tblRoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblContactUsAttachment_tblContactUs">
+          <End Role="tblContactUs" Type="Self.tblContactU" Multiplicity="1" />
+          <End Role="tblContactUsAttachment" Type="Self.tblContactUsAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblContactUs">
+              <PropertyRef Name="ContactUsId" />
+            </Principal>
+            <Dependent Role="tblContactUsAttachment">
+              <PropertyRef Name="ContactUsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioFeatures_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioFeatures" Type="Self.tblPortfolioFeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioFeatures">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioImages_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioImages" Type="Self.tblPortfolioImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioImages">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioObjective_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioObjective" Type="Self.tblPortfolioObjective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioObjective">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioResult_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="0..1" />
+          <End Role="tblPortfolioResult" Type="Self.tblPortfolioResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioResult">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioSolutions_tblPortfolioSolutions">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="1" />
+          <End Role="tblPortfolioSolutions" Type="Self.tblPortfolioSolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioSolutions">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblPortfolioTechnology_tblPortfolio">
+          <End Role="tblPortfolio" Type="Self.tblPortfolio" Multiplicity="0..1" />
+          <End Role="tblPortfolioTechnology" Type="Self.tblPortfolioTechnology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPortfolio">
+              <PropertyRef Name="PortfolioId" />
+            </Principal>
+            <Dependent Role="tblPortfolioTechnology">
+              <PropertyRef Name="PortfolioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRoleMenu_tblRoles">
+          <End Role="tblRoles" Type="Self.tblRole" Multiplicity="1" />
+          <End Role="tblRoleMenu" Type="Self.tblRoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tblRoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_tblRoles">
+          <End Role="tblRoles" Type="Self.tblRole" Multiplicity="1" />
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SatvasoftEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdminMenus" EntityType="Self.tblAdminMenu" />
+          <EntitySet Name="tblBlogCategories" EntityType="Self.tblBlogCategory" />
+          <EntitySet Name="tblBlogComments" EntityType="Self.tblBlogComment" />
+          <EntitySet Name="tblBlogPosts" EntityType="Self.tblBlogPost" />
+          <EntitySet Name="tblBlogPostSeeCounts" EntityType="Self.tblBlogPostSeeCount" />
+          <EntitySet Name="tblBudgets" EntityType="Self.tblBudget" />
+          <EntitySet Name="tblChallengeFaceds" EntityType="Self.tblChallengeFaced" />
+          <EntitySet Name="tblContactUs" EntityType="Self.tblContactU" />
+          <EntitySet Name="tblContactUsAttachments" EntityType="Self.tblContactUsAttachment" />
+          <EntitySet Name="tblExperiences" EntityType="Self.tblExperience" />
+          <EntitySet Name="tblJobOpenings" EntityType="Self.tblJobOpening" />
+          <EntitySet Name="tblJobRequiredSkills" EntityType="Self.tblJobRequiredSkill" />
+          <EntitySet Name="tblMenus" EntityType="Self.tblMenu" />
+          <EntitySet Name="tblPortfolios" EntityType="Self.tblPortfolio" />
+          <EntitySet Name="tblPortfolioFeatures" EntityType="Self.tblPortfolioFeature" />
+          <EntitySet Name="tblPortfolioImages" EntityType="Self.tblPortfolioImage" />
+          <EntitySet Name="tblPortfolioLogoes" EntityType="Self.tblPortfolioLogo" />
+          <EntitySet Name="tblPortfolioObjectives" EntityType="Self.tblPortfolioObjective" />
+          <EntitySet Name="tblPortfolioResults" EntityType="Self.tblPortfolioResult" />
+          <EntitySet Name="tblPortfolioSolutions" EntityType="Self.tblPortfolioSolution" />
+          <EntitySet Name="tblPortfolioTechnologies" EntityType="Self.tblPortfolioTechnology" />
+          <EntitySet Name="tblPortfolioTypes" EntityType="Self.tblPortfolioType" />
+          <EntitySet Name="tblProjectTypes" EntityType="Self.tblProjectType" />
+          <EntitySet Name="tblRequestQuotes" EntityType="Self.tblRequestQuote" />
+          <EntitySet Name="tblRoleMenus" EntityType="Self.tblRoleMenu" />
+          <EntitySet Name="tblRoles" EntityType="Self.tblRole" />
+          <EntitySet Name="tblSalaryRanges" EntityType="Self.tblSalaryRange" />
+          <EntitySet Name="tblTechnologies" EntityType="Self.tblTechnology" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <AssociationSet Name="FK_tblRoleMenu_tblAdminMenu" Association="Self.FK_tblRoleMenu_tblAdminMenu">
+            <End Role="tblAdminMenu" EntitySet="tblAdminMenus" />
+            <End Role="tblRoleMenu" EntitySet="tblRoleMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblContactUsAttachment_tblContactUs" Association="Self.FK_tblContactUsAttachment_tblContactUs">
+            <End Role="tblContactUs" EntitySet="tblContactUs" />
+            <End Role="tblContactUsAttachment" EntitySet="tblContactUsAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioFeatures_tblPortfolio" Association="Self.FK_tblPortfolioFeatures_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolios" />
+            <End Role="tblPortfolioFeatures" EntitySet="tblPortfolioFeatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioImages_tblPortfolio" Association="Self.FK_tblPortfolioImages_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolios" />
+            <End Role="tblPortfolioImages" EntitySet="tblPortfolioImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioObjective_tblPortfolio" Association="Self.FK_tblPortfolioObjective_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolios" />
+            <End Role="tblPortfolioObjective" EntitySet="tblPortfolioObjectives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioResult_tblPortfolio" Association="Self.FK_tblPortfolioResult_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolios" />
+            <End Role="tblPortfolioResult" EntitySet="tblPortfolioResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioSolutions_tblPortfolioSolutions" Association="Self.FK_tblPortfolioSolutions_tblPortfolioSolutions">
+            <End Role="tblPortfolio" EntitySet="tblPortfolios" />
+            <End Role="tblPortfolioSolutions" EntitySet="tblPortfolioSolutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPortfolioTechnology_tblPortfolio" Association="Self.FK_tblPortfolioTechnology_tblPortfolio">
+            <End Role="tblPortfolio" EntitySet="tblPortfolios" />
+            <End Role="tblPortfolioTechnology" EntitySet="tblPortfolioTechnologies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRoleMenu_tblRoles" Association="Self.FK_tblRoleMenu_tblRoles">
+            <End Role="tblRoles" EntitySet="tblRoles" />
+            <End Role="tblRoleMenu" EntitySet="tblRoleMenus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_tblRoles" Association="Self.FK_tblUser_tblRoles">
+            <End Role="tblRoles" EntitySet="tblRoles" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SatvasoftModelStoreContainer" CdmEntityContainer="SatvasoftEntities">
+          <EntitySetMapping Name="tblAdminMenus">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblAdminMenu">
+              <MappingFragment StoreEntitySet="tblAdminMenu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBlogCategories">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblBlogCategory">
+              <MappingFragment StoreEntitySet="tblBlogCategories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBlogComments">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblBlogComment">
+              <MappingFragment StoreEntitySet="tblBlogComments">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBlogPosts">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblBlogPost">
+              <MappingFragment StoreEntitySet="tblBlogPosts">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PostImagePath" ColumnName="PostImagePath" />
+                <ScalarProperty Name="AltTag" ColumnName="AltTag" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="PostPageTitle" ColumnName="PostPageTitle" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="PostURL" ColumnName="PostURL" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="MetaDesc" ColumnName="MetaDesc" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBlogPostSeeCounts">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblBlogPostSeeCount">
+              <MappingFragment StoreEntitySet="tblBlogPostSeeCount">
+                <ScalarProperty Name="PostSeeCountId" ColumnName="PostSeeCountId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBudgets">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblBudget">
+              <MappingFragment StoreEntitySet="tblBudget">
+                <ScalarProperty Name="BudgetId" ColumnName="BudgetId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblChallengeFaceds">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblChallengeFaced">
+              <MappingFragment StoreEntitySet="tblChallengeFaced">
+                <ScalarProperty Name="ChallengeFacedId" ColumnName="ChallengeFacedId" />
+                <ScalarProperty Name="ChallengeFaced" ColumnName="ChallengeFaced" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContactUs">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblContactU">
+              <MappingFragment StoreEntitySet="tblContactUs">
+                <ScalarProperty Name="ContactUsId" ColumnName="ContactUsId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="ContactOrSubscriptionRequest" ColumnName="ContactOrSubscriptionRequest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblContactUsAttachments">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblContactUsAttachment">
+              <MappingFragment StoreEntitySet="tblContactUsAttachment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContactUsId" ColumnName="ContactUsId" />
+                <ScalarProperty Name="AttachmentURL" ColumnName="AttachmentURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblExperiences">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblExperience">
+              <MappingFragment StoreEntitySet="tblExperience">
+                <ScalarProperty Name="ExperienceId" ColumnName="ExperienceId" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblJobOpenings">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblJobOpening">
+              <MappingFragment StoreEntitySet="tblJobOpenings">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="JobCode" ColumnName="JobCode" />
+                <ScalarProperty Name="Loaction" ColumnName="Loaction" />
+                <ScalarProperty Name="Openings" ColumnName="Openings" />
+                <ScalarProperty Name="SalaryRange" ColumnName="SalaryRange" />
+                <ScalarProperty Name="ExperienceId" ColumnName="ExperienceId" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblJobRequiredSkills">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblJobRequiredSkill">
+              <MappingFragment StoreEntitySet="tblJobRequiredSkills">
+                <ScalarProperty Name="RequiredSkillId" ColumnName="RequiredSkillId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMenus">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblMenu">
+              <MappingFragment StoreEntitySet="tblMenu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolios">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolio">
+              <MappingFragment StoreEntitySet="tblPortfolio">
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="BannerImageURL" ColumnName="BannerImageURL" />
+                <ScalarProperty Name="BannerImageTooltip" ColumnName="BannerImageTooltip" />
+                <ScalarProperty Name="TechnologyId" ColumnName="TechnologyId" />
+                <ScalarProperty Name="FrontPageImageURL" ColumnName="FrontPageImageURL" />
+                <ScalarProperty Name="FrontImageTooltip" ColumnName="FrontImageTooltip" />
+                <ScalarProperty Name="TitleSeoUrl" ColumnName="TitleSeoUrl" />
+                <ScalarProperty Name="SEOTitleTag" ColumnName="SEOTitleTag" />
+                <ScalarProperty Name="MetaKeyword" ColumnName="MetaKeyword" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="RequirePageCreation" ColumnName="RequirePageCreation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioFeatures">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioFeature">
+              <MappingFragment StoreEntitySet="tblPortfolioFeatures">
+                <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+                <ScalarProperty Name="FeatureText" ColumnName="FeatureText" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioImages">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioImage">
+              <MappingFragment StoreEntitySet="tblPortfolioImages">
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="SEOTitleTag" ColumnName="SEOTitleTag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioLogoes">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioLogo">
+              <MappingFragment StoreEntitySet="tblPortfolioLogo">
+                <ScalarProperty Name="PortfolioLogoId" ColumnName="PortfolioLogoId" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="SEOTitleTag" ColumnName="SEOTitleTag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioObjectives">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioObjective">
+              <MappingFragment StoreEntitySet="tblPortfolioObjective">
+                <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
+                <ScalarProperty Name="ObjectiveText" ColumnName="ObjectiveText" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioResults">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioResult">
+              <MappingFragment StoreEntitySet="tblPortfolioResult">
+                <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+                <ScalarProperty Name="ResultText" ColumnName="ResultText" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioSolutions">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioSolution">
+              <MappingFragment StoreEntitySet="tblPortfolioSolutions">
+                <ScalarProperty Name="SolutionId" ColumnName="SolutionId" />
+                <ScalarProperty Name="SolutionText" ColumnName="SolutionText" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioTechnologies">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioTechnology">
+              <MappingFragment StoreEntitySet="tblPortfolioTechnology">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TechnologyText" ColumnName="TechnologyText" />
+                <ScalarProperty Name="PortfolioId" ColumnName="PortfolioId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPortfolioTypes">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblPortfolioType">
+              <MappingFragment StoreEntitySet="tblPortfolioTypes">
+                <ScalarProperty Name="PortfolioTypeId" ColumnName="PortfolioTypeId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectTypes">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblProjectType">
+              <MappingFragment StoreEntitySet="tblProjectType">
+                <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRequestQuotes">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblRequestQuote">
+              <MappingFragment StoreEntitySet="tblRequestQuote">
+                <ScalarProperty Name="RequestQuoteId" ColumnName="RequestQuoteId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+                <ScalarProperty Name="BudgetId" ColumnName="BudgetId" />
+                <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="BudgetName" ColumnName="BudgetName" />
+                <ScalarProperty Name="ProjectTypeName" ColumnName="ProjectTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoleMenus">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblRoleMenu">
+              <MappingFragment StoreEntitySet="tblRoleMenu">
+                <ScalarProperty Name="RoleMenuId" ColumnName="RoleMenuId" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="IsView" ColumnName="IsView" />
+                <ScalarProperty Name="IsAdd" ColumnName="IsAdd" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoles">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblRole">
+              <MappingFragment StoreEntitySet="tblRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSalaryRanges">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblSalaryRange">
+              <MappingFragment StoreEntitySet="tblSalaryRange">
+                <ScalarProperty Name="SalaryRangeId" ColumnName="SalaryRangeId" />
+                <ScalarProperty Name="SalaryRange" ColumnName="SalaryRange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTechnologies">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblTechnology">
+              <MappingFragment StoreEntitySet="tblTechnologies">
+                <ScalarProperty Name="TechnologyId" ColumnName="TechnologyId" />
+                <ScalarProperty Name="TechnologyName" ColumnName="TechnologyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="SatvasoftModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

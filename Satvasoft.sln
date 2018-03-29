@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satvasoft.Web", "Satvasoft.Web\Satvasoft.Web.csproj", "{C526BC43-F473-43B4-B307-16A256F17CB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satvasoft.API", "Satvasoft.API\Satvasoft.API.csproj", "{FDF725ED-BF5E-43BF-B056-E254A58BE6CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C526BC43-F473-43B4-B307-16A256F17CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C526BC43-F473-43B4-B307-16A256F17CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C526BC43-F473-43B4-B307-16A256F17CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF725ED-BF5E-43BF-B056-E254A58BE6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF725ED-BF5E-43BF-B056-E254A58BE6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF725ED-BF5E-43BF-B056-E254A58BE6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF725ED-BF5E-43BF-B056-E254A58BE6CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
