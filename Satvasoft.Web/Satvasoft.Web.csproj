@@ -2614,6 +2614,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Images\portfolio\newPortfolioImg\New folder\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ExcludedViews\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
