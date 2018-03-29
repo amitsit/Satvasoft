@@ -2460,6 +2460,7 @@
     <Content Include="Views\enterprise-content-management.cshtml" />
     <Content Include="Views\GetImages.html" />
     <Content Include="Views\GetParticularPortfolioDetail.cshtml" />
+    <Content Include="Views\GetPortfolioListPartial.html" />
     <Content Include="Views\hadoop-development.cshtml" />
     <Content Include="Views\hire-resource.cshtml" />
     <Content Include="Views\hrandjob-portal-solution.cshtml" />
