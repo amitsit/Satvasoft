@@ -2458,6 +2458,7 @@
     <Content Include="Views\domain-expertise.cshtml" />
     <Content Include="Views\ecommerce-solution.cshtml" />
     <Content Include="Views\enterprise-content-management.cshtml" />
+    <Content Include="Views\GetImages.html" />
     <Content Include="Views\GetParticularPortfolioDetail.cshtml" />
     <Content Include="Views\hadoop-development.cshtml" />
     <Content Include="Views\hire-resource.cshtml" />
